@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EELデスクトップアプリ</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center bg-danger py-2 my-3 text-white">EELデスクトップアプリ</h1>
+    <form action="">
+      <div class="form-group mb-4">
+        <label for="" class="col-form-label-lg">キーワード</label>
+        <input id="keyword" type="text" class="form-control form-control-lg" >
+        <input type="button" value="検索" class="mt-4 btn btn-primary btn-lg" onclick="showKeyword()">
+      </div><!-- /.form-group -->
+    </form>
+  </div><!-- /.container -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript">
+  const showKeyword = () => {
+    let keyword = document.getElementById("keyword").value
+    if(keyword) {
+      alert(keyword)
+    } else {
+      alert('キーワードを入力してください。')
+    }
+    
+  }
+</script>
+</body>
+</html>
