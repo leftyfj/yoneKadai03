@@ -7,9 +7,8 @@
   <title>EELデスクトップアプリ</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <script>
-    
-  </script>
+  <script type="text/javascript" src="/eel.js"></script>
+  
 </head>
 <body>
   <div class="container">
@@ -18,22 +17,29 @@
       <div class="form-group mb-4">
         <label for="" class="col-form-label-lg">キーワード</label>
         <input id="keyword" type="text" class="form-control form-control-lg" >
-        <input type="button" value="検索" class="mt-4 btn btn-primary btn-lg" onclick="showKeyword()">
+        <input type="button" value="検索" class="mt-4 btn btn-primary btn-lg" onclick="from_js_call_python() ">
       </div><!-- /.form-group -->
     </form>
+    <label class="mt-5" for="searhResult">検索結果</label>
+    <textarea name="searchResult" id="" cols="100" rows="10" class="w-100">
+    </textarea><!-- /# -->
   </div><!-- /.container -->
+ 
 <script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
 <script type="text/javascript">
-  const showKeyword = () => {
-    let keyword = document.getElementById("keyword").value
-    if(keyword) {
-      alert(keyword)
-    } else {
-      alert('キーワードを入力してください。')
+      function from_js_call_python() {
+        let keyword = document.getElementById("keyword").value
+        if(keyword) {
+          eel.from_js_call_python(keyword)
+        } else {
+          alert('キーワードを入力してください')
+        }
+          
     }
+
+ 
     
-  }
-</script>
+
+  </script>
 </body>
 </html>
