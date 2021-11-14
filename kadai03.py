@@ -1,7 +1,7 @@
 import eel
 import csv
 
-SOURCE_CSV_PATH = 'char.csv'
+
 @eel.expose #これでjsから呼び出せるようになる
 
 def python_function(search_char):

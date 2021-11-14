@@ -14,6 +14,12 @@
   <div class="container">
     <h1 class="text-center bg-danger py-2 my-3 text-white">EELデスクトップアプリ</h1>
     <form action="">
+      <div class="form-group1 mb-4">
+        <label for="file" class="for_file">
+          <input id="file" type="file" name="file" class="file" accept=".csv" onchange="OnFileSelect()">ファイルを選択
+        </label>
+        <span id="show_file" class="ml-3">選択されていません</span>
+      </div><!-- /.form-group -->
       <div class="form-group mb-4">
         <label for="" class="col-form-label-lg">キーワード</label>
         <input id="keyword" type="text" class="form-control form-control-lg" >
@@ -38,9 +44,11 @@
      }
       run();
     }
-
- 
-    
+    function OnFileSelect() {
+        let fileName = document.getElementById('file').files[0].name;
+        document.getElementById('show_file').innerHTML = fileName;
+    }
+  
 
   </script>
 </body>
