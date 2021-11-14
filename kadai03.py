@@ -26,6 +26,10 @@ def python_function(search_char, fileName):
       res = f'「{search_char}」はいます'
     else:
       res = f'「{search_char}」はいません。' + '\n' + f'「{search_char}」を追加します。'
+      char_list.append(search_char)
+      with open(fileName,"w", newline="", encoding="utf-8_sig") as csv_file:
+        csv_file.write("\n".join(char_list))
+        make_log(f'{search_char}をファイルに追加')
     make_log('検索終了')
     return res
   except:
