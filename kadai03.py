@@ -8,9 +8,9 @@ def python_function(search_char, fileName):
     char_list = csv_file.read().splitlines()
   # print(char_list)
   if search_char in char_list:
-    res = f'「{search_char}」の名前が登場人物リストにありました。'
+    res = f'「{search_char}」の名前が登場人物リスト({fileName})にありました。'
   else:
-    res = f'「{search_char}」の名前が登場人物リストにありませんでした。'
+    res = f'「{search_char}」の名前が登場人物リスト({fileName})にありませんでした。'
   return res
 
 eel.init("web")
