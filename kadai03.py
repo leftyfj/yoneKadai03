@@ -1,26 +1,19 @@
 import eel
 import csv
 
-
 @eel.expose #これでjsから呼び出せるようになる
-
-def python_function(search_char):
+def python_function(search_char, fileName):
   char_list = []
-  
-  with open(SOURCE_CSV_PATH, 'r', encoding="utf-8_sig") as csv_file:
+  with open(fileName, 'r', encoding="utf-8_sig") as csv_file:
     char_list = csv_file.read().splitlines()
-  
-  print(char_list)
-
+  # print(char_list)
   if search_char in char_list:
     res = f'「{search_char}」の名前が登場人物リストにありました。'
   else:
     res = f'「{search_char}」の名前が登場人物リストにありませんでした。'
-  # word = f'検索したいキーワード=>{word}'
   return res
 
 eel.init("web")
-
 web_app_options = {
   "mode": "chrome-app",
   "port": 9999,
@@ -29,5 +22,7 @@ web_app_options = {
     "--window-position = 0,0",
   ]
 }
-eel.start("index.html", suppress_error=True, options=web_app_options)
+# eel.start("index.html", suppress_error=True, options=web_app_options)
+
+eel.start("index.html")
 

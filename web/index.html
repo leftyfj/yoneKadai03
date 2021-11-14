@@ -21,35 +21,36 @@
         <span id="show_file" class="ml-3">選択されていません</span>
       </div><!-- /.form-group -->
       <div class="form-group mb-4">
-        <label for="" class="col-form-label-lg">キーワード</label>
+        <label for="" class="col-form-label-lg">検索ワード</label>
         <input id="keyword" type="text" class="form-control form-control-lg" >
         <input type="button" value="検索" class="mt-4 btn btn-primary btn-lg" onclick="searchKeyword()">
       </div><!-- /.form-group -->
     </form>
     <label class="mt-5" for="searhResult">検索結果</label>
-    <textarea name="searchResult" id="searchResult" cols="100" rows="10" class="w-100">
-    </textarea><!-- /# -->
+    <textarea name="searchResult" id="searchResult" col="100" rows="10" class="w-100"></textarea><!-- /# -->
   </div><!-- /.container -->
  
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
+    let fileName;
     function searchKeyword(){
       let keyword = document.getElementById('keyword').value;
       let res_before = document.getElementById('searchResult').value;
-
+      fileName =document.getElementById('show_file').textContent;
+   
       async function run() {
-        let result= await eel.python_function(keyword)();
+        let result= await eel.python_function(keyword, fileName)();
         result = res_before + result
         document.getElementById('searchResult').innerHTML = result + '\n';
      }
       run();
     }
+
     function OnFileSelect() {
-        let fileName = document.getElementById('file').files[0].name;
+        fileName = document.getElementById('file').files[0].name;
         document.getElementById('show_file').innerHTML = fileName;
     }
   
-
   </script>
 </body>
 </html>
