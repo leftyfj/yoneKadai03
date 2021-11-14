@@ -17,28 +17,35 @@
       <div class="form-group mb-4">
         <label for="" class="col-form-label-lg">キーワード</label>
         <input id="keyword" type="text" class="form-control form-control-lg" >
-        <input type="button" value="検索" class="mt-4 btn btn-primary btn-lg" onclick="searchKeyword()">
+        <input type="button" value="検索" class="mt-4 btn btn-primary btn-lg" onclick="from_js_call_python() ">
       </div><!-- /.form-group -->
     </form>
     <label class="mt-5" for="searhResult">検索結果</label>
-    <textarea name="searchResult" id="searchResult" cols="100" rows="10" class="w-100">
+    <textarea name="searchResult" id="" cols="100" rows="10" class="w-100">
     </textarea><!-- /# -->
   </div><!-- /.container -->
  
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
-    function searchKeyword(){
-      let keyword = document.getElementById('keyword').value;
-      let res_before = document.getElementById('searchResult').value;
+      eel.expose(from_python_call_js)
+      
+      function from_python_call_js() {
+        let keyword = document.getElementById("keyword").value
+        alert(keyword)
+        //if(keyword) {
+       //   eel.from_js_call_python(keyword)
+       // } else {
+       //   alert('キーワードを入力してください')
+       // }
+          
+      }
 
-      async function run() {
-        let result= await eel.python_function(keyword)();
-        result = res_before + result
-        document.getElementById('searchResult').innerHTML = result + '\n';
-     }
-      run();
-    }
+    //  async function run() {
+    //    let keyword_from_python = await eel.from_js_call_python()();
+    //    alert(keyword_from_python)
+    //  }
 
+    //  run(); 
  
     
 
