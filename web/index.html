@@ -34,20 +34,24 @@
     let fileName;
     function searchKeyword(){
       let keyword = document.getElementById('keyword').value;
-      let res_before = document.getElementById('searchResult').value;
-      fileName =document.getElementById('show_file').textContent;
-      
-      if(fileName == '' || fileName == '選択されていません') {
-        alert('ファイルを選択してください。');
+      if(keyword == '') {
+        alert('検索キーワードが入力されていません');
       } else {
-        async function run() {
-        let result= await eel.python_function(keyword, fileName)();
-        result = res_before + result
-        document.getElementById('searchResult').innerHTML = result + '\n';
-     }
-      run();
+
+        let res_before = document.getElementById('searchResult').value;
+        fileName =document.getElementById('show_file').textContent;
+        
+        if(fileName == '' || fileName == '選択されていません') {
+          alert('ファイルを選択してください。');
+        } else {
+          async function run() {
+          let result= await eel.python_function(keyword, fileName)();
+          result = res_before + result
+          document.getElementById('searchResult').innerHTML = result + '\n';
       }
-      
+        run();
+        }
+      }
     }
 
     function OnFileSelect() {
