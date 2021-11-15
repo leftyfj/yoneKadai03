@@ -3,10 +3,15 @@ import csv
 import datetime
 import traceback
 import socket 
+import os
+
+
 
 LOG_FILE_PATH = "./log/log_{datetime}.log"
 log_file_path = LOG_FILE_PATH.format(
     datetime=datetime.datetime.now().strftime('%Y-%m-%d'))
+
+os.makedirs(os.path.dirname(log_file_path), exist_ok=True)
 #log出力関数
 def make_log(txt):
     now = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
