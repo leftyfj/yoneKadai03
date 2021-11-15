@@ -136,10 +136,12 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+pythonFiles/
 
 main.py
 main.html
 _index.html
 TODO.txt
+get-pip.py
 
 
