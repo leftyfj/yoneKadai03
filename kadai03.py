@@ -23,6 +23,7 @@ def make_log(txt):
     
 @eel.expose #これでjsから呼び出せるようになる
 def python_function(search_char, fileName):
+  fileName = os.path.abspath(fileName)
   try:
     char_list = []
     with open(fileName, 'r', encoding="utf-8_sig") as csv_file:
