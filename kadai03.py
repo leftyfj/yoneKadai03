@@ -5,8 +5,6 @@ import traceback
 import socket 
 import os
 
-
-
 LOG_FILE_PATH = "./log/log_{datetime}.log"
 log_file_path = LOG_FILE_PATH.format(
     datetime=datetime.datetime.now().strftime('%Y-%m-%d'))
@@ -41,6 +39,7 @@ def python_function(search_char, fileName):
     return res
   except:
     make_log('検索失敗')
+    make_log(traceback.format_exc())
     
 eel.init("web")
 # 未使用ポート取得
